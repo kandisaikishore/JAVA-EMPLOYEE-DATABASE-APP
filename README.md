@@ -1,5 +1,18 @@
 # Java Employee Database App
 
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?logo=github)](https://github.com/saikishore2410/JAVA-EMPLOYEE-DATABASE-APP) [![Issues](https://img.shields.io/github/issues/saikishore2410/JAVA-EMPLOYEE-DATABASE-APP)](https://github.com/saikishore2410/JAVA-EMPLOYEE-DATABASE-APP/issues) [![Last Commit](https://img.shields.io/github/last-commit/saikishore2410/JAVA-EMPLOYEE-DATABASE-APP)](https://github.com/saikishore2410/JAVA-EMPLOYEE-DATABASE-APP/commits/main)
+
+> An educational Java project exploring employee records and database-style operations.
+
+## At a glance
+
+- **Purpose:** Use the feature and scope sections below to understand the problem this project addresses.
+- **Getting started:** Follow the repository-specific setup instructions and verify commands against the current source and package scripts.
+- **Configuration:** Keep API keys, database credentials, tokens, and private user data out of commits; configure secrets locally.
+- **Quality checks:** Run the available build, test, and lint commands before submitting changes.
+
+
+
 An educational Java project exploring employee records and database-style operations.
 
 ## Overview
