@@ -24,7 +24,7 @@ Install a JDK, MySQL Server, and MySQL Connector/J.
 
 ## 1. Create the database
 
-Run the following SQL in your MySQL client:
+The repository includes an `employee_db` file; inspect it and the Java source for the expected schema. If your source expects the following table, you can create it with:
 
 ```sql
 CREATE DATABASE employee_db;
@@ -38,41 +38,34 @@ CREATE TABLE employees (
 );
 ```
 
-Check the Java source for the precise table/column names and update the SQL if your implementation expects a different schema.
+Adjust the table or column names to match the SQL statements in `EmployeeDBApp.java`.
 
-## 2. Configure the connection
+## 2. Configure the database connection
 
-Set the JDBC URL, username, and password for your local MySQL instance. Prefer environment variables or a local, untracked configuration file. **Never commit real database credentials.**
+Set the JDBC URL, username, and password for your local MySQL instance. Prefer environment variables or a local untracked configuration file. **Do not commit real credentials.**
 
 ## 3. Compile and run
 
-Download the MySQL Connector/J JAR and put it in the project directory. Example on Windows:
+Download MySQL Connector/J and place the JAR in the project directory. Example on Windows:
 
 ```powershell
 javac -cp ".;mysql-connector-j.jar" EmployeeDBApp.java
 java -cp ".;mysql-connector-j.jar" EmployeeDBApp
 ```
 
-On macOS/Linux, use `:` instead of `;` as the classpath separator:
-
-```bash
-javac -cp ".:mysql-connector-j.jar" EmployeeDBApp.java
-java -cp ".:mysql-connector-j.jar" EmployeeDBApp
-```
-
-Replace the JAR filename with the version you downloaded.
+On macOS/Linux, use `:` rather than `;` as the classpath separator.
 
 ## Recommended improvements
 
 - Move credentials out of source code
 - Use try-with-resources for connections, statements, and result sets
-- Add update and delete operations with validation
-- Add tests using a dedicated test database
-- Add clear database setup and troubleshooting instructions
+- Add update/delete operations with validation
+- Add tests against a dedicated test database
+- Document schema setup and common connection errors
 
 ## Scope and security
 
-This is a learning example, not a production HR system. A real employee-data application requires authentication, authorization, audit logs, data protection, backups, and controlled database access.
+This is a learning example, not a production HR system. Real employee-data software requires authentication, authorization, audit logs, data protection, backups, and controlled database access.
 
 ## License
 
