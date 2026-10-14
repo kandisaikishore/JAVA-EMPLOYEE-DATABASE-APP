@@ -1,53 +1,46 @@
 # Java Employee Database App
 
-## Live Demo / Deployment URL
+[![Java](https://img.shields.io/badge/Java-JDBC-orange?logo=openjdk)](https://www.java.com/) [![MySQL](https://img.shields.io/badge/Database-MySQL-4479A1?logo=mysql)](https://www.mysql.com/) [![GitHub](https://img.shields.io/badge/Source-GitHub-181717?logo=github)](https://github.com/saikishore2410/JAVA-EMPLOYEE-DATABASE-APP)
 
-**Deployment URL:** Not verified yet. Add the confirmed public application URL here after checking the live service. This repository's GitHub URL is the source code, not a deployed application.
+A Java JDBC example connecting to MySQL to demonstrate inserting employee records and reading employee data. Useful for practising database connectivity, prepared statements, SQL execution, and exception handling.
 
+## Current capabilities
+- Connects to a local employee_db MySQL database
+- Inserts an employee using a parameterized PreparedStatement
+- Reads employee records and prints selected fields
+- Handles SQL exceptions
 
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?logo=github)](https://github.com/saikishore2410/JAVA-EMPLOYEE-DATABASE-APP) [![Issues](https://img.shields.io/github/issues/saikishore2410/JAVA-EMPLOYEE-DATABASE-APP)](https://github.com/saikishore2410/JAVA-EMPLOYEE-DATABASE-APP/issues) [![Last Commit](https://img.shields.io/github/last-commit/saikishore2410/JAVA-EMPLOYEE-DATABASE-APP)](https://github.com/saikishore2410/JAVA-EMPLOYEE-DATABASE-APP/commits/main)
+## Technology
+Java, JDBC, MySQL, MySQL Connector/J.
 
-> An educational Java project exploring employee records and database-style operations.
+## Prerequisites
+Install a JDK and MySQL Server. Create the database and table:
 
-## At a glance
+    CREATE DATABASE employee_db;
+    USE employee_db;
+    CREATE TABLE employees (
+      id INT PRIMARY KEY AUTO_INCREMENT,
+      name VARCHAR(100) NOT NULL,
+      department VARCHAR(100) NOT NULL,
+      salary DECIMAL(12, 2) NOT NULL
+    );
 
-- **Purpose:** Use the feature and scope sections below to understand the problem this project addresses.
-- **Getting started:** Follow the repository-specific setup instructions and verify commands against the current source and package scripts.
-- **Configuration:** Keep API keys, database credentials, tokens, and private user data out of commits; configure secrets locally.
-- **Quality checks:** Run the available build, test, and lint commands before submitting changes.
+## Configure credentials
+The Java source contains local connection settings. Replace the placeholder values with your own local development configuration, or preferably read them from environment variables. Never commit a real password.
 
+## Compile and run
+Download MySQL Connector/J and place the JAR in the project directory, then run on Windows:
 
+    javac -cp ".;mysql-connector-j.jar" EmployeeDBApp.java
+    java -cp ".;mysql-connector-j.jar" EmployeeDBApp
 
-An educational Java project exploring employee records and database-style operations.
+On macOS/Linux, use a colon rather than a semicolon as the classpath separator.
 
-## Overview
-
-The current source and build configuration define the exact Java version, database driver, and persistence behaviour used by this application.
-
-## Getting started
-
-```bash
-git clone https://github.com/saikishore2410/JAVA-EMPLOYEE-DATABASE-APP.git
-cd JAVA-EMPLOYEE-DATABASE-APP
-```
-
-Install the required JDK and dependencies. Configure database URL and credentials locally according to the project's configuration, then compile and run using its documented build tool or entry point. Never commit real credentials.
-
-## Engineering checklist
-
-- Validate employee fields and database errors
-- Use parameterized SQL for database operations
-- Keep secrets out of source control
-- Add tests for create, read, update, and delete behaviour
+## Recommended improvements
+Add update/delete operations, use try-with-resources for statements and result sets, validate input, move credentials out of source, and add database integration tests.
 
 ## Scope
-
-Treat this as a learning project unless persistence, access control, auditing, and error handling have been verified for production use.
-
-## Contributions
-
-Focused pull requests and reproducible bug reports are welcome.
+This is a learning example, not a production HR system. Production use requires authentication, authorization, audit logging, data protection, and controlled database access.
 
 ## License
-
-No license is specified. Add a `LICENSE` file to define reuse terms.
+No license file is currently declared. Add a license before granting reuse permissions.
