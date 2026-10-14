@@ -1,30 +1,33 @@
 # Java Employee Database App
 
-[![Java](https://img.shields.io/badge/Java-JDBC-orange?logo=openjdk)](https://www.java.com/) [![MySQL](https://img.shields.io/badge/Database-MySQL-4479A1?logo=mysql)](https://www.mysql.com/) [![Repository](https://img.shields.io/badge/GitHub-Source-181717?logo=github)](https://github.com/kandisaikishore/JAVA-EMPLOYEE-DATABASE-APP)
+[![Java](https://img.shields.io/badge/Java-JDBC-orange?logo=openjdk)](https://www.java.com/) [![MySQL](https://img.shields.io/badge/Database-MySQL-4479A1?logo=mysql)](https://www.mysql.com/) [![Source](https://img.shields.io/badge/Source-GitHub-181717?logo=github)](https://github.com/kandisaikishore/JAVA-EMPLOYEE-DATABASE-APP)
 
-A Java JDBC learning project that connects to MySQL and demonstrates inserting employee records and reading them back. It introduces relational database connectivity, parameterized SQL, and exception handling.
+A Java JDBC application that demonstrates connecting to MySQL and performing employee-record operations. The project is useful for practising relational database access, parameterized SQL, result-set handling, and exception management.
 
 ## Current capabilities
 
-- Connect to a local MySQL database
-- Insert employee data using a parameterized `PreparedStatement`
-- Read employee records and print selected fields
-- Handle SQL exceptions
+- Connect to a MySQL database through JDBC
+- Insert employee records using a prepared statement
+- Retrieve employee details and print them in the console
+- Work with a simple employee database schema
+- Practise Java resource management and SQL error handling
 
-## Tech stack
+Check `EmployeeDBApp.java` for the exact supported operations and database configuration.
 
-- Java
+## Technology stack
+
+- Java / JDK
 - JDBC
 - MySQL Server
 - MySQL Connector/J
 
 ## Prerequisites
 
-Install a JDK, MySQL Server, and MySQL Connector/J.
+Install a JDK, MySQL Server, and MySQL Connector/J. Confirm that the database service is running before launching the application.
 
-## 1. Create the database
+## Database setup
 
-The repository includes an `employee_db` file; inspect it and the Java source for the expected schema. If your source expects the following table, you can create it with:
+Inspect the `employee_db` file and the SQL statements in `EmployeeDBApp.java` to confirm the schema expected by this version. A compatible example schema, if it matches the source, is:
 
 ```sql
 CREATE DATABASE employee_db;
@@ -38,34 +41,41 @@ CREATE TABLE employees (
 );
 ```
 
-Adjust the table or column names to match the SQL statements in `EmployeeDBApp.java`.
+Update the names and column types if the source uses a different schema.
 
-## 2. Configure the database connection
+## Configure and run
 
-Set the JDBC URL, username, and password for your local MySQL instance. Prefer environment variables or a local untracked configuration file. **Do not commit real credentials.**
+Configure the JDBC URL, username, and password for your local MySQL installation. Keep credentials outside version control and use a least-privilege database account.
 
-## 3. Compile and run
+Place the MySQL Connector/J JAR in the project directory, then compile and run (replace the JAR filename as needed):
 
-Download MySQL Connector/J and place the JAR in the project directory. Example on Windows:
-
+**Windows PowerShell**
 ```powershell
 javac -cp ".;mysql-connector-j.jar" EmployeeDBApp.java
 java -cp ".;mysql-connector-j.jar" EmployeeDBApp
 ```
 
-On macOS/Linux, use `:` rather than `;` as the classpath separator.
+**macOS / Linux**
+```bash
+javac -cp ".:mysql-connector-j.jar" EmployeeDBApp.java
+java -cp ".:mysql-connector-j.jar" EmployeeDBApp
+```
 
-## Recommended improvements
+## Recommended validation
 
-- Move credentials out of source code
-- Use try-with-resources for connections, statements, and result sets
-- Add update/delete operations with validation
-- Add tests against a dedicated test database
-- Document schema setup and common connection errors
+Test successful inserts, empty or malformed fields, database unavailability, incorrect credentials, and queries against an empty table. Verify that connections, statements, and result sets are closed reliably.
 
-## Scope and security
+## Security and scope
 
-This is a learning example, not a production HR system. Real employee-data software requires authentication, authorization, audit logs, data protection, backups, and controlled database access.
+This is an educational sample, not a production HR system. Production employee-data systems require authentication, authorization, secure configuration, auditability, backup policies, and careful handling of personal data.
+
+## Roadmap
+
+- Move database settings to environment variables
+- Use try-with-resources consistently
+- Add validated update and delete operations
+- Add automated tests against a dedicated test database
+- Document schema migrations and common JDBC errors
 
 ## License
 
